@@ -17,3 +17,21 @@ class Date:
     @property
     def year(self) -> int:
         return self.__date.year
+
+    def set_date(self, month: int, day: int, year: int) -> None:
+        revised_date = date(year, month, day)
+        self.__date = revised_date
+
+    def is_leap_year(self):
+        return calendar.isleap(self.__date.year)
+
+    @staticmethod
+    def is_leap_year(year: int):
+        return calendar.isleap(year)
+
+    def last_day(self):
+        return calendar.monthrange(self.__date.year, self.__date.month)[1]
+
+    @staticmethod
+    def last_day(year: int, month: int):
+        return calendar.monthrange(year, month)[1]
