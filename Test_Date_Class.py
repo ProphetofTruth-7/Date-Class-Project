@@ -1,5 +1,5 @@
 import unittest
-from date_class import Date
+from Date_Class import Date
 
 class TestDate(unittest.TestCase):
     def test_default_constructor(self):
