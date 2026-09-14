@@ -22,16 +22,25 @@ class Date:
         revised_date = date(year, month, day)
         self.__date = revised_date
 
-    def is_leap_year(self):
+    def is_leap_year(self) -> bool:
         return calendar.isleap(self.__date.year)
 
     @staticmethod
-    def is_leap_year(year: int):
+    def is_leap_year(year: int) -> bool:
         return calendar.isleap(year)
 
-    def last_day(self):
+    def last_day(self) -> int:
         return calendar.monthrange(self.__date.year, self.__date.month)[1]
 
     @staticmethod
-    def last_day(year: int, month: int):
+    def last_day(year: int, month: int) -> int:
         return calendar.monthrange(year, month)[1]
+
+    def numeric_return(self) -> str:
+        return self.__date.strftime("%m/%d/%Y")
+
+    def alphabetic_return(self) -> str:
+        return self.__date.strftime("%B %d, %Y")
+
+    def alt_alphabetic_return(self) -> str:
+        return self.__date.strftime("%d %B %Y")
