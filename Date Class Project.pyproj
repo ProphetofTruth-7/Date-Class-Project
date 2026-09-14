@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>975c8e60-331b-4be6-a60a-b4c9c973eb51</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Date_Class_Project.py</StartupFile>
+    <StartupFile>Date_Class.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,8 +21,8 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Date.py" />
-    <Compile Include="Date_Class_Project.py" />
+    <Compile Include="Date_Class.py" />
+    <Compile Include="Test_Date_Class.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

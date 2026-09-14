@@ -4,7 +4,7 @@ import calendar
 class Date:
     def __init__(self, day: int = 1, month: int = 1, year: int = 1900) -> None:
         self.__date = date(day, month, year)
-
+    """ Constructor for the Date Class. Establishes the baseline values, but does not force validation. Importantly, does not initialize each value separately, keeping them firmly housed in datetime"""
 
     @property
     def day(self) -> int:
