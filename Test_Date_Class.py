@@ -30,9 +30,16 @@ class TestDate(unittest.TestCase): #Allows unittest in. It then runs thorugh all
 
     def test_set_date(self):
         self.date.set_date(2007, 4, 2)
-        self.assertEqual(self.date.alphabetic_return(), "April 2, 2007")
+        self.assertEqual(self.date.alphabetic_return(), "April 02, 2007")
 
+    def test_set_invalid_date(self):
+        with self.assertRaises(ValueError):
+            self.date.set_date(2007, 4, 60)
 
-       
+    def test_original_date_unchanged(self):
+        with self.assertRaises(ValueError):
+            self.date.set_date(2007, 4, 60)
+        self.assertEqual(self.date.alphabetic_return(), "September 13, 2026")
+
 if __name__ == "__main__":
     unittest.main()
