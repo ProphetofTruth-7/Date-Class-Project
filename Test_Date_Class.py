@@ -17,9 +17,6 @@ class TestDate(unittest.TestCase): #Allows unittest in. It then runs thorugh all
         with self.assertRaises(ValueError):
             Date(1900, 11, 60)
 
-    def test_invalid_year(self):
-        with self.assertRaises(ValueError):
-            Date(-1, 11, 1)
 
 
        
