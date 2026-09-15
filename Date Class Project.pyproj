@@ -11,6 +11,7 @@
     <OutputPath>.</OutputPath>
     <Name>Date Class Project</Name>
     <RootNamespace>Date Class Project</RootNamespace>
+    <TestFramework>unittest</TestFramework>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>

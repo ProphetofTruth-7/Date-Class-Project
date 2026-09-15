@@ -23,7 +23,7 @@ class Date:
         return self.__date.year
     """ Returns the year currently stored in datetime as a integer """
 
-    def set_date(self, month: int, day: int, year: int) -> None:
+    def set_date(self, year: int, month: int, day: int) -> None:
         revised_date = date(year, month, day)
         self.__date = revised_date
     """ Sets the date to the specified month, day, and year, creating a revised datetime object with said values """
