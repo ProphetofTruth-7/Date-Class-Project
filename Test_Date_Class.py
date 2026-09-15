@@ -41,5 +41,22 @@ class TestDate(unittest.TestCase): #Allows unittest in. It then runs thorugh all
             self.date.set_date(2007, 4, 60)
         self.assertEqual(self.date.alphabetic_return(), "September 13, 2026")
 
+    def test_is_leap_year_instance(self):
+        self.assertFalse(self.date.is_leap_year(self.date.year))
+        self.date.set_date(2024, 4, 3)
+        self.assertTrue(self.date.is_leap_year(self.date.year))
+
+    def test_is_leap_year_static(self):
+        self.assertTrue(self.date.is_leap_year(2024))
+        self.assertFalse(self.date.is_leap_year(2023))
+
+    def test_last_day_instance(self):
+        self.assertEqual(self.date.last_day(self.date.year, self.date.month), 30)
+
+    def test_last_day_static(self):
+        self.assertEqual(self.date.last_day(2024, 2), 29)
+
+    def
+
 if __name__ == "__main__":
     unittest.main()
