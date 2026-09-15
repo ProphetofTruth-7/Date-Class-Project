@@ -57,13 +57,16 @@ class TestDate(unittest.TestCase): #Allows unittest in. It then runs thorugh all
         self.assertEqual(self.date.last_day(2024, 2), 29)
 
     def test_numeric_return(self):
-        self.assertEqual(self.date.numeric_return(), "09/13/2026")
+        self.date.set_date(2021, 12, 25)
+        self.assertEqual(self.date.numeric_return(), "12/25/2021")
 
     def test_alphabetic_return(self):
-        self.assertEqual(self.date.alphabetic_return(), "September 13, 2026")
+        self.date.set_date(2021, 12, 25)
+        self.assertEqual(self.date.alphabetic_return(), "December 25, 2021")
 
-def test_alt_alphabetic_return(self):
-        self.assertEqual(self.date.alt_alphabetic_return(), "13, September 2026")
+    def test_alt_alphabetic_return(self):
+        self.date.set_date(2021, 12, 25)
+        self.assertEqual(self.date.alt_alphabetic_return(), "25 December 2021")
 
 if __name__ == "__main__":
     unittest.main()
