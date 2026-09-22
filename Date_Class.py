@@ -3,6 +3,7 @@ import calendar
 
 class Date:
     """A wrapper class that provides extra, specific, user-friendly functionality for the datetime class. Forbids access to the main values(year, month, day) via read-only properties, and answers many EDGECASES expected in calendar programs"""
+    """Modified for extra functionality in the form of Increment/Decrement Operations, Subtraction, and Extraction/Insertion Stream Operators """
 
     def __init__(self, year: int = 1900, month: int = 1, day: int = 1) -> None:
         self.__date = date(year, month, day)
