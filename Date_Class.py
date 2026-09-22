@@ -1,12 +1,50 @@
-from datetime import date
+from datetime import date, timedelta
 import calendar
 
 class Date:
     """A wrapper class that provides extra, specific, user-friendly functionality for the datetime class. Forbids access to the main values(year, month, day) via read-only properties, and answers many EDGECASES expected in calendar programs"""
+    """Modified for extra functionality in the form of Increment/Decrement Operations, Subtraction, and Extraction/Insertion Stream Operators """
 
     def __init__(self, year: int = 1900, month: int = 1, day: int = 1) -> None:
         self.__date = date(year, month, day)
     """ Constructor for the Date Class. Establishes the baseline values, but does not force validation. Importantly, does not initialize each value separately, keeping them firmly housed in datetime """
+
+
+    # Part 2 Methods
+
+    """ Returns a signed difference in days between the two provided Date objects. If provided an unsupported Object, NotImplemented is returned """
+    def __sub__(self, other: 'Date') -> int:
+        if not isinstance(other, Date):
+            return NotImplemented
+        return (self.__date - other.__date).days
+
+    """Modifies the current Date object by incrementing by one day, before returning the self """
+    def increment(self) -> "Date":
+        self.__date += timedelta(days=1)
+        return self
+
+    """Modifies the current Date object by decrementing by one day, before returning the self """
+    def decrement(self) -> "Date":
+        self.__date -= timedelta(days=1)
+        return self
+
+    """Returns the current date store in self in Alphabetic Format """
+    def __str__(self) -> str:
+        return self.__date.strftime("%B %d, %Y")
+
+    """ Returns a Date Object with the values supplied by the user. Does not explicitly handle validation, but alerts to invalid inputs """
+    @classmethod
+    def from_input(cls) -> "Date":
+        year = int(input("Enter year: "))
+        month = int(input("Enter month: "))
+        day = int(input("Enter day: "))
+        return cls(year, month, day)
+
+
+
+
+
+    # Part 1 Methods
 
     @property
     def day(self) -> int:
