@@ -8,6 +8,24 @@ class Date:
         self.__date = date(year, month, day)
     """ Constructor for the Date Class. Establishes the baseline values, but does not force validation. Importantly, does not initialize each value separately, keeping them firmly housed in datetime """
 
+
+    # Part 2 Methods
+
+    def __sub__(self, other: 'Date') -> int:
+        if not isinstance(other, Date):
+            return NotImplemented
+        return (self.__date - other.__date).days
+
+
+
+
+
+
+
+
+
+    # Part 1 Methods
+
     @property
     def day(self) -> int:
         return self.__date.day

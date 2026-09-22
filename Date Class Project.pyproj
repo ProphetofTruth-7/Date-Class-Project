@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>975c8e60-331b-4be6-a60a-b4c9c973eb51</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Date_Class.py</StartupFile>
+    <StartupFile>Test_Date_Class.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
