@@ -1,5 +1,6 @@
 import unittest
 from Date_Class import Date
+from unittest.mock import patch
 
 
 class TestDate(unittest.TestCase):
@@ -94,6 +95,33 @@ class TestDate(unittest.TestCase):
         self.assertEqual(str(Date(2024, 2, 29)), "February 29, 2024")
     def test_str_method4(self):
         self.assertEqual(str(Date(2026, 12, 31)), "December 31, 2026")
+# Input() Tests
+    @patch("builtins.input", side_effect=["2026", "9", "13"])  #No clue why its written like this, but it basically mimicks a user inputting month(4), day(18), and year(2018)
+    def test_input_valid(self, mock_input):
+        result = Date.from_input()
+        self.assertEqual(result.month, 9)
+        self.assertEqual(result.day, 13)
+        self.assertEqual(result.year, 2026)
+
+    @patch("builtins.input", side_effect=["2026", "Alpha", "13"])
+    def test_input_nonnumeric(self, mock_input):
+        with self.assertRaises(ValueError):
+            result = Date.from_input()
+
+    @patch("builtins.input", side_effect=["2026", "23", "13"])
+    def test_input_invalid_month(self, mock_input):
+        with self.assertRaises(ValueError):
+            result = Date.from_input()
+
+    @patch("builtins.input", side_effect=["2026", "9", "60"])
+    def test_input_invalid_day(self, mock_input):
+        with self.assertRaises(ValueError):
+            result = Date.from_input()
+
+    @patch("builtins.input", side_effect=["2026", "2", "29"])
+    def test_input_invalid_leap_year(self, mock_input):
+        with self.assertRaises(ValueError):
+            result = Date.from_input()
 
 
     # Part 1 Tests

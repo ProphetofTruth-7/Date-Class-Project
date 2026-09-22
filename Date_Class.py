@@ -17,21 +17,27 @@ class Date:
             return NotImplemented
         return (self.__date - other.__date).days
 
-    """Modifies the current Date object by incrementing by one day, before returning the self"""
+    """Modifies the current Date object by incrementing by one day, before returning the self """
     def increment(self) -> "Date":
         self.__date += timedelta(days=1)
         return self
 
-    """Modifies the current Date object by decrementing by one day, before returning the self"""
+    """Modifies the current Date object by decrementing by one day, before returning the self """
     def decrement(self) -> "Date":
         self.__date -= timedelta(days=1)
         return self
 
-    """Returns the current date store in self in Alphabetic Format"""
+    """Returns the current date store in self in Alphabetic Format """
     def __str__(self) -> str:
         return self.__date.strftime("%B %d, %Y")
 
-
+    """ Returns a Date Object with the values supplied by the user. Does not explicitly handle validation, but alerts to invalid inputs """
+    @classmethod
+    def from_input(cls) -> "Date":
+        year = int(input("Enter year: "))
+        month = int(input("Enter month: "))
+        day = int(input("Enter day: "))
+        return cls(year, month, day)
 
 
 
