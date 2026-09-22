@@ -85,6 +85,15 @@ class TestDate(unittest.TestCase):
         self.assertEqual(testDate.alphabetic_return(), "December 31, 2025")
     def test_proper_decrement_return(self):
         self.assertIs(self.date.decrement(), self.date)
+# String Tests
+    def test_str_method1(self):
+        self.assertEqual(str(self.date), "September 13, 2026")
+    def test_str_method2(self):
+        self.assertEqual(str(Date(2026, 9, 4)), "September 04, 2026")
+    def test_str_method3(self):
+        self.assertEqual(str(Date(2024, 2, 29)), "February 29, 2024")
+    def test_str_method4(self):
+        self.assertEqual(str(Date(2026, 12, 31)), "December 31, 2026")
 
 
     # Part 1 Tests

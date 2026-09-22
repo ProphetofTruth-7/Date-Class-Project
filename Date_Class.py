@@ -24,6 +24,9 @@ class Date:
         self.__date -= timedelta(days=1)
         return self
 
+    def __str__(self) -> str:
+        return self.__date.strftime("%B %d, %Y")
+
 
 
 
