@@ -11,19 +11,23 @@ class Date:
 
     # Part 2 Methods
 
+    """ Returns a signed difference in days between the two provided Date objects. If provided an unsupported Object, NotImplemented is returned """
     def __sub__(self, other: 'Date') -> int:
         if not isinstance(other, Date):
             return NotImplemented
         return (self.__date - other.__date).days
 
+    """Modifies the current Date object by incrementing by one day, before returning the self"""
     def increment(self) -> "Date":
         self.__date += timedelta(days=1)
         return self
 
+    """Modifies the current Date object by decrementing by one day, before returning the self"""
     def decrement(self) -> "Date":
         self.__date -= timedelta(days=1)
         return self
 
+    """Returns the current date store in self in Alphabetic Format"""
     def __str__(self) -> str:
         return self.__date.strftime("%B %d, %Y")
 
