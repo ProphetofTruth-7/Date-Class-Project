@@ -12,7 +12,7 @@ class TestDate(unittest.TestCase):
     def setUp(self):
         self.date = Date(2026, 9, 13)
         self.datebefore = Date(2026, 8, 4)
-        self.dateafter = Date(2026, 10, 23)
+        self.dateafter = Date(2026, 10, 26)
         self.dateleap = Date(2024, 2, 29)
 
 
@@ -20,11 +20,11 @@ class TestDate(unittest.TestCase):
 
     # Part 2 Tests
 
-    def test_subtraction(self):
-        self.assertEqual(self.date - self.datebefore, 40) #Positive
-        self.assertEqual(self.date - self.dateafter, -40) #Negative
-        self.assertEqual(self.date - self.date, 0) #Equal
-        self.assertEqual(self.date - self.dateleap, 927) #LeapYear
+    def test_subtraction_basic(self):
+        self.assertEqual(self.date - self.datebefore, 40)
+        self.assertEqual(self.date - self.dateafter, -43)
+        self.assertEqual(self.date - self.date, 0)
+        self.assertEqual(self.date - self.dateleap, 927)
 
     def test_subtraction_invalid_type(self):
         with self.assertRaises(TypeError):
@@ -34,7 +34,35 @@ class TestDate(unittest.TestCase):
         self.assertEqual(Date(2014, 4, 18) - Date(2014, 4, 10), 8)
         self.assertEqual(Date(2006, 2, 2) - Date(2003, 11, 10), 815)
 
-
+    def test_increment_single(self):
+        self.date.increment()
+        self.assertEqual(self.date.alphabetic_return(), "September 14, 2026")
+    def test_increment_request1(self):
+        testDate = Date(2026, 4, 30)
+        testDate.increment()
+        self.assertEqual(testDate.alphabetic_return(), "May 01, 2026")
+    def test_increment_request2(self):
+        testDate = Date(2026, 1, 31)
+        testDate.increment()
+        self.assertEqual(testDate.alphabetic_return(), "February 01, 2026")
+    def test_increment_request3(self):
+        testDate = Date(2026, 2, 28)
+        testDate.increment()
+        self.assertEqual(testDate.alphabetic_return(), "March 01, 2026")
+    def test_increment_request4(self):
+        testDate = Date(2024, 2, 28)
+        testDate.increment()
+        self.assertEqual(testDate.alphabetic_return(), "February 29, 2024")
+    def test_increment_request5(self):
+        testDate = Date(2024, 2, 29)
+        testDate.increment()
+        self.assertEqual(testDate.alphabetic_return(), "March 01, 2024")
+    def test_increment_request6(self):
+        testDate = Date(2026, 12, 31)
+        testDate.increment()
+        self.assertEqual(testDate.alphabetic_return(), "January 01, 2027")
+    def test_proper_increment_return(self):
+        self.assertIs(self.date.increment(), self.date)
 
     # Part 1 Tests
 

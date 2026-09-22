@@ -16,7 +16,9 @@ class Date:
             return NotImplemented
         return (self.__date - other.__date).days
 
-
+    def increment(self) -> "Date":
+        self.__date += timedelta(days=1)
+        return self
 
 
 
