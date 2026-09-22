@@ -11,13 +11,15 @@ class TestDate(unittest.TestCase):
 
     def setUp(self):
         self.date = Date(2026, 9, 13)
+        self.datebefore = Date(2026, 8, 4)
+        self.dateafter = Date(2026, 10, 23)
 
 
 
 
     # Part 2 Tests
 
-    
+    def test_subtraction(self, ):
 
 
     # Part 1 Tests
