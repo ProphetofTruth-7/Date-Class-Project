@@ -19,21 +19,20 @@ class TestDate(unittest.TestCase):
 
 
     # Part 2 Tests
-
+# Subtraction Tests
     def test_subtraction_basic(self):
         self.assertEqual(self.date - self.datebefore, 40)
         self.assertEqual(self.date - self.dateafter, -43)
         self.assertEqual(self.date - self.date, 0)
         self.assertEqual(self.date - self.dateleap, 927)
-
     def test_subtraction_invalid_type(self):
         with self.assertRaises(TypeError):
             self.date - 5
-
     def test_subtraction_demands(self):
         self.assertEqual(Date(2014, 4, 18) - Date(2014, 4, 10), 8)
         self.assertEqual(Date(2006, 2, 2) - Date(2003, 11, 10), 815)
 
+# Increment Tests
     def test_increment_single(self):
         self.date.increment()
         self.assertEqual(self.date.alphabetic_return(), "September 14, 2026")
@@ -63,6 +62,30 @@ class TestDate(unittest.TestCase):
         self.assertEqual(testDate.alphabetic_return(), "January 01, 2027")
     def test_proper_increment_return(self):
         self.assertIs(self.date.increment(), self.date)
+
+# Decrement Tests
+    def test_decrement_single(self):
+        self.date.decrement()
+        self.assertEqual(self.date.alphabetic_return(), "September 12, 2026")
+    def test_decrement_request1(self):
+        testDate = Date(2026, 5, 1)
+        testDate.decrement()
+        self.assertEqual(testDate.alphabetic_return(), "April 30, 2026")
+    def test_decrement_request2(self):
+        testDate = Date(2026, 3, 1)
+        testDate.decrement()
+        self.assertEqual(testDate.alphabetic_return(), "February 28, 2026")
+    def test_decrement_request3(self):
+        testDate = Date(2024, 3, 1)
+        testDate.decrement()
+        self.assertEqual(testDate.alphabetic_return(), "February 29, 2024")
+    def test_decrement_request4(self):
+        testDate = Date(2026, 1, 1)
+        testDate.decrement()
+        self.assertEqual(testDate.alphabetic_return(), "December 31, 2025")
+    def test_proper_decrement_return(self):
+        self.assertIs(self.date.decrement(), self.date)
+
 
     # Part 1 Tests
 

@@ -20,6 +20,10 @@ class Date:
         self.__date += timedelta(days=1)
         return self
 
+    def decrement(self) -> "Date":
+        self.__date -= timedelta(days=1)
+        return self
+
 
 
 
