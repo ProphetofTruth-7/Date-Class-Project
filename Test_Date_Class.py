@@ -13,13 +13,27 @@ class TestDate(unittest.TestCase):
         self.date = Date(2026, 9, 13)
         self.datebefore = Date(2026, 8, 4)
         self.dateafter = Date(2026, 10, 23)
+        self.dateleap = Date(2024, 2, 29)
 
 
 
 
     # Part 2 Tests
 
-    def test_subtraction(self, ):
+    def test_subtraction(self):
+        self.assertEqual(self.date - self.datebefore, 40) #Positive
+        self.assertEqual(self.date - self.dateafter, -40) #Negative
+        self.assertEqual(self.date - self.date, 0) #Equal
+        self.assertEqual(self.date - self.dateleap, 927) #LeapYear
+
+    def test_subtraction_invalid_type(self):
+        with self.assertRaises(TypeError):
+            self.date - 5
+
+    def test_subtraction_demands(self):
+        self.assertEqual(Date(2014, 4, 18) - Date(2014, 4, 10), 8)
+        self.assertEqual(Date(2006, 2, 2) - Date(2003, 11, 10), 815)
+
 
 
     # Part 1 Tests
